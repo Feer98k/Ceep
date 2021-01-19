@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Ceep</string>
+    <string name="inserir_uma_nota">Inserir uma nota</string>
+    <string name="descricao">Descrição</string>
+    <string name="titulo">Título</string>
+    <string name="menu_lista_linear">menu_lista_linear</string>
+    <string name="menu_lista_grid">menu_lista_grid</string>
+    <string name="deixe_o_seu_feedback">Deixe o seu feedback! :)</string>
+    <string name="email">E-mail</string>
+    <string name="escreva_seu_feedback">Escreva seu feedback</string>
+    <string name="envie_d_vidas_ou_sugest_es_sobre_sua_experi_ncia_com_o_ceep_usaremos_as_informa_es_fornecidas_para_aprimorar_a_experi_ncia_da_app">Envie dúvidas ou sugestões sobre sua experiência com o Ceep. Usaremos as informações fornecidas para aprimorar a experiência da App.</string>
+    <string name="itemhelp">ItemHelp</string>
+    <string name="menu_enviar_feedback_send">menu_enviar_feedback_send</string>
+
+</resources>
