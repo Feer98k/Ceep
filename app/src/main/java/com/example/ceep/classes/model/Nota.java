@@ -1,4 +1,4 @@
-package com.example.ceep.classes.database.entites;
+package com.example.ceep.classes.model;
 
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;

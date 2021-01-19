@@ -1,4 +1,4 @@
-package com.example.ceep.classes.adapter.listaCoresAdapter;
+package com.example.ceep.classes.ui.adapter.listaCoresAdapter;
 
 import com.example.ceep.classes.model.Cor;
 

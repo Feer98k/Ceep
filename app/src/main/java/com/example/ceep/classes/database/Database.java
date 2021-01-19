@@ -1,4 +1,4 @@
-package com.example.ceep.classes.database.data;
+package com.example.ceep.classes.database;
 
 import android.content.Context;
 
@@ -8,7 +8,7 @@ import androidx.room.TypeConverters;
 
 import com.example.ceep.classes.database.conveter.coresEnumConverter;
 import com.example.ceep.classes.database.dao.NotaDataDao;
-import com.example.ceep.classes.database.entites.Nota;
+import com.example.ceep.classes.model.Nota;
 
 import static com.example.ceep.classes.constantes.general.ConstantesGerais.CEEP_DB;
 import static com.example.ceep.classes.database.migrations.migrations.MIGRATION;

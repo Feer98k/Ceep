@@ -1,4 +1,4 @@
-package com.example.ceep.classes.ui;
+package com.example.ceep.classes.ui.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 

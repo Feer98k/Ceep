@@ -1,4 +1,4 @@
-package com.example.ceep.classes.ui;
+package com.example.ceep.classes.ui.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,11 +13,11 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ceep.R;
-import com.example.ceep.classes.adapter.listaCoresAdapter.FormularioCoresAdapter;
+import com.example.ceep.classes.ui.adapter.listaCoresAdapter.FormularioCoresAdapter;
 import com.example.ceep.classes.constantes.general.coresEnum;
 import com.example.ceep.classes.database.dao.NotaDataDao;
-import com.example.ceep.classes.database.data.Database;
-import com.example.ceep.classes.database.entites.Nota;
+import com.example.ceep.classes.database.Database;
+import com.example.ceep.classes.model.Nota;
 import com.example.ceep.classes.model.Cor;
 import com.example.ceep.classes.model.ListaDeCores;
 
@@ -128,8 +128,7 @@ public class FormularioDeNotas extends AppCompatActivity {
             setColorFundo(corClicada);
         });
     }
-
-    private void setColorFundo(coresEnum corDefault) {
+    private  void setColorFundo(coresEnum corDefault) {
         switch (corDefault) {
             case BRANCO:
                 fundoConstraintLayout.setBackgroundColor(getResources().getColor(R.color.BRANCO));
@@ -170,5 +169,7 @@ public class FormularioDeNotas extends AppCompatActivity {
                 nota.setCorPadrao(coresEnum.ROXO);
                 break;
         }
+
+
     }
 }

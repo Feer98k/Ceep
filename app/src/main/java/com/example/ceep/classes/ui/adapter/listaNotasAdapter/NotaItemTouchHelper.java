@@ -1,11 +1,11 @@
-package com.example.ceep.classes.adapter.listaNotasAdapter;
+package com.example.ceep.classes.ui.adapter.listaNotasAdapter;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ceep.classes.database.dao.NotaDataDao;
-import com.example.ceep.classes.database.entites.Nota;
+import com.example.ceep.classes.model.Nota;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package com.example.ceep.classes.ui;
+package com.example.ceep.classes.ui.activity;
 
 import android.os.Bundle;
 import android.view.Menu;

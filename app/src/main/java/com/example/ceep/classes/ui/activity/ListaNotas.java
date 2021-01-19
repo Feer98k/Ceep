@@ -1,4 +1,4 @@
-package com.example.ceep.classes.ui;
+package com.example.ceep.classes.ui.activity;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -15,11 +15,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import com.example.ceep.R;
-import com.example.ceep.classes.adapter.listaNotasAdapter.ListaNotasAdapter;
-import com.example.ceep.classes.adapter.listaNotasAdapter.NotaItemTouchHelper;
+import com.example.ceep.classes.ui.adapter.listaNotasAdapter.ListaNotasAdapter;
+import com.example.ceep.classes.ui.adapter.listaNotasAdapter.NotaItemTouchHelper;
 import com.example.ceep.classes.database.dao.NotaDataDao;
-import com.example.ceep.classes.database.data.Database;
-import com.example.ceep.classes.database.entites.Nota;
+import com.example.ceep.classes.database.Database;
+import com.example.ceep.classes.model.Nota;
 
 import java.util.List;
 

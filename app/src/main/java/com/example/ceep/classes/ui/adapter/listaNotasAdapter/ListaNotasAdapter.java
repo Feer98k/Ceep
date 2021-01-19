@@ -1,4 +1,4 @@
-package com.example.ceep.classes.adapter.listaNotasAdapter;
+package com.example.ceep.classes.ui.adapter.listaNotasAdapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.ceep.R;
 import com.example.ceep.classes.constantes.general.coresEnum;
 import com.example.ceep.classes.database.dao.NotaDataDao;
-import com.example.ceep.classes.database.entites.Nota;
+import com.example.ceep.classes.model.Nota;
 
 import java.util.Collections;
 import java.util.List;

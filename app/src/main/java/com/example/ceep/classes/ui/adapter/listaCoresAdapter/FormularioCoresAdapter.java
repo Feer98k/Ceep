@@ -1,4 +1,4 @@
-package com.example.ceep.classes.adapter.listaCoresAdapter;
+package com.example.ceep.classes.ui.adapter.listaCoresAdapter;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
