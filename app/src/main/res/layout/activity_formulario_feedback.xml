@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".classes.ui.activity.FormularioFeedback">
+    tools:context=".classes.ui.activity.FeedbackForm">
     <ImageView
         android:id="@+id/formulario_feedback_image"
         android:layout_width="0dp"

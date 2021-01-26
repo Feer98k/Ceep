@@ -10,30 +10,25 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
 
-        app:layout_constraintBottom_toTopOf="@id/lista_notas_insere_nota"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:listitem="@layout/item_nota" />
 
-    <View
-        android:layout_width="0dp"
-        android:layout_height="5dp"
-        android:background="@drawable/fundo_gradiente_insere_nota"
-        app:layout_constraintBottom_toTopOf="@id/lista_notas_insere_nota"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
 
-    <TextView
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/lista_notas_insere_nota"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:text="@string/inserir_uma_nota"
-        android:textColor="@android:color/darker_gray"
-        android:textSize="20sp"
+        android:layout_margin="16dp"
+        android:src="@drawable/ic_baseline_add_24"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        />
 </androidx.constraintlayout.widget.ConstraintLayout>

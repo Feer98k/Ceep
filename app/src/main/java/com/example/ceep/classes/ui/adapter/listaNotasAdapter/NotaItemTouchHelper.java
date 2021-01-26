@@ -4,19 +4,19 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.ceep.classes.database.dao.NotaDataDao;
-import com.example.ceep.classes.model.Nota;
+import com.example.ceep.classes.database.dao.NoteDAO;
+import com.example.ceep.classes.model.Note;
 
 import java.util.List;
 
 public class NotaItemTouchHelper extends ItemTouchHelper.Callback {
-    final ListaNotasAdapter adapter;
-    final List<Nota> lista;
-    final NotaDataDao dao;
+    final NotesAdapterList adapter;
+    final List<Note> lista;
+    final NoteDAO dao;
 
-    public NotaItemTouchHelper(ListaNotasAdapter adapter, List<Nota> listaNotas, NotaDataDao dao) {
+    public NotaItemTouchHelper(NotesAdapterList adapter, List<Note> listaNotes, NoteDAO dao) {
         this.adapter = adapter;
-        this.lista = listaNotas;
+        this.lista = listaNotes;
         this.dao = dao;
     }
 
@@ -32,16 +32,16 @@ public class NotaItemTouchHelper extends ItemTouchHelper.Callback {
     public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
         int first = viewHolder.getBindingAdapterPosition();
         int targeter = target.getBindingAdapterPosition();
-        adapter.troca(first, targeter);
+        adapter.swap(first, targeter);
         return true;
     }
 
     @Override
     public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
         int posicao = viewHolder.getBindingAdapterPosition();
-        Nota notaMovida = lista.get(posicao);
-        dao.remove(notaMovida);
-        adapter.remover(posicao);
+        Note noteMovida = lista.get(posicao);
+        dao.remove(noteMovida);
+        adapter.remove(posicao);
 
     }
 }

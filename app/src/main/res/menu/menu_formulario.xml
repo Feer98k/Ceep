@@ -6,6 +6,6 @@
 <item
     android:icon="@drawable/ic_baseline_check"
     app:showAsAction="ifRoom"
-    android:title="salvar nota"
+    android:title="salvar note"
     tools:ignore="HardcodedText" />
 </menu>

@@ -1,6 +1,6 @@
-package com.example.ceep.classes.constantes.sharedPreference;
+package com.example.ceep.classes.constants.sharedPreference;
 
-public interface  layoutPreference {
+public interface LayoutPreference {
      String USER_PREFERENCES = "user_preferences";
      String LINEAR="Linear";
      String GRID="Grid";

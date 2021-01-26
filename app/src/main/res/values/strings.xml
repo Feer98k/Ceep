@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">Ceep</string>
-    <string name="inserir_uma_nota">Inserir uma nota</string>
-    <string name="descricao">Descrição</string>
-    <string name="titulo">Título</string>
+    <string name="inserir_uma_nota">Inserir uma note</string>
+    <string name="description">Descrição</string>
+    <string name="title">Título</string>
     <string name="menu_lista_linear">menu_lista_linear</string>
     <string name="menu_lista_grid">menu_lista_grid</string>
     <string name="deixe_o_seu_feedback">Deixe o seu feedback! :)</string>

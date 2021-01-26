@@ -9,11 +9,11 @@ import android.os.Handler;
 
 import com.example.ceep.R;
 
-import static com.example.ceep.classes.constantes.general.ConstantesGerais.JA_ENTROU;
-import static com.example.ceep.classes.constantes.sharedPreference.layoutPreference.USER_PREFERENCES;
+import static com.example.ceep.classes.constants.general.GeneralConstants.FIRST;
+import static com.example.ceep.classes.constants.sharedPreference.LayoutPreference.USER_PREFERENCES;
 
 @SuppressWarnings("ALL")
-public class splashScreen extends AppCompatActivity {
+public class SplashScreen extends AppCompatActivity {
     final Handler handle = new Handler();
     SharedPreferences preferences;
     @Override
@@ -21,31 +21,31 @@ public class splashScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
         preferences =getSharedPreferences(USER_PREFERENCES, MODE_PRIVATE);
-        verificaEntrada(handle, preferences);
+        check(handle, preferences);
 
 
     }
 
-    private void verificaEntrada(Handler handle, SharedPreferences preferences) {
+    private void check(Handler handle, SharedPreferences preferences) {
 
-        if(!preferences.contains(JA_ENTROU)){
-            criarPreference(preferences);
-            handle.postDelayed(this::iniciarPacote, 2000);
+        if(!preferences.contains(FIRST)){
+            createPreferences(preferences);
+            handle.postDelayed(this::startListNotes, 2000);
 
         }else{
-            handle.postDelayed(this::iniciarPacote, 500);
+            handle.postDelayed(this::startListNotes, 500);
         }
     }
 
-    public void iniciarPacote() {
-        Intent intent = new Intent(this, ListaNotas.class);
+    public void startListNotes() {
+        Intent intent = new Intent(this, NotesList.class);
         startActivity(intent);
         finish();
     }
 
-    private void criarPreference(SharedPreferences preferences) {
+    private void createPreferences(SharedPreferences preferences) {
         SharedPreferences.Editor editor = preferences.edit();
-        editor.putBoolean(JA_ENTROU,true);
+        editor.putBoolean(FIRST,true);
         editor.apply();
     }
 

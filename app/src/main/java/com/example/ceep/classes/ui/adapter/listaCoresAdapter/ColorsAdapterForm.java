@@ -12,78 +12,78 @@ import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ceep.R;
-import com.example.ceep.classes.constantes.general.coresEnum;
+import com.example.ceep.classes.constants.general.ColorsEnum;
 import com.example.ceep.classes.model.Cor;
 
 import java.util.List;
 
-public class FormularioCoresAdapter extends RecyclerView.Adapter<FormularioCoresAdapter.coresHolder> {
+public class ColorsAdapterForm extends RecyclerView.Adapter<ColorsAdapterForm.ColorsHolder> {
 
     private final Context context;
     private final List<Cor> list;
-    private onClickLCoresListerner onClickListernet;
-    private int holder = 0;
+    private OnClickLCoresListerner onClickListernet;
 
 
 
-    public FormularioCoresAdapter(Context context, List<Cor> list) {
+
+    public ColorsAdapterForm(Context context, List<Cor> list) {
         this.context = context;
         this.list = list;
     }
 
 
-    public void setOnClickListerner(onClickLCoresListerner onClickListernet) {
+    public void setOnClickListerner(OnClickLCoresListerner onClickListernet) {
         this.onClickListernet = onClickListernet;
     }
 
     @NonNull
     @Override
-    public coresHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        holder++;
+    public ColorsHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+
         View inflater = LayoutInflater
                 .from(context)
                 .inflate(R.layout.item_cores, parent, false);
 
-        return new coresHolder(inflater);
+        return new ColorsHolder(inflater);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull coresHolder holder, int position) {
-        Cor cor = list.get(position);
-        coresEnum colorPosition = cor.getCor();
+    public void onBindViewHolder(@NonNull ColorsHolder holder, int position) {
+        Cor color = list.get(position);
+        ColorsEnum colorPosition = color.getCor();
         setColorByHolder(holder, colorPosition);
-        holder.vincule(cor);
+        holder.vincule(color);
     }
 
-    private void setColorByHolder(coresHolder holder, coresEnum colorDefault) {
+    private void setColorByHolder(ColorsHolder holder, ColorsEnum colorDefault) {
         switch (colorDefault) {
-            case BRANCO:
+            case WHITE:
                 setDrawableColor(holder.item.getContext(), holder.item.getBackground(), R.color.BRANCO);
                 break;
-            case AZUL:
+            case BLUE:
                 setDrawableColor(holder.item.getContext(), holder.item.getBackground(), R.color.AZUL);
                 break;
-            case VERMELHO:
+            case RED:
                 setDrawableColor(holder.item.getContext(), holder.item.getBackground(), R.color.VERMELHO);
                 break;
-            case AMARELO:
+            case YELLOW:
                 setDrawableColor(holder.item.getContext(), holder.item.getBackground(), R.color.AMARELO);
                 break;
 
-            case VERDE:
+            case GREEN:
                 setDrawableColor(holder.item.getContext(), holder.item.getBackground(), R.color.VERDE);
                 break;
 
-            case LILAS:
+            case LILAC:
                 setDrawableColor(holder.item.getContext(), holder.item.getBackground(), R.color.LILÁS);
                 break;
-            case CINZA:
+            case GRAY:
                 setDrawableColor(holder.item.getContext(), holder.item.getBackground(), R.color.CINZA);
                 break;
-            case MARROM:
+            case BROWN:
                 setDrawableColor(holder.item.getContext(), holder.item.getBackground(), R.color.MARROM);
                 break;
-            case ROXO:
+            case PURPLE:
                 setDrawableColor(holder.item.getContext(), holder.item.getBackground(), R.color.ROXO);
                 break;
         }
@@ -98,11 +98,11 @@ public class FormularioCoresAdapter extends RecyclerView.Adapter<FormularioCores
     public int getItemCount() {
         return list.size();
     }
-    class coresHolder extends RecyclerView.ViewHolder {
+    class ColorsHolder extends RecyclerView.ViewHolder {
         Cor colors;
         final View item;
 
-        public coresHolder(View itemView) {
+        public ColorsHolder(View itemView) {
             super(itemView);
             itemClick(itemView);
             item = itemView.findViewById(R.id.item_cores);

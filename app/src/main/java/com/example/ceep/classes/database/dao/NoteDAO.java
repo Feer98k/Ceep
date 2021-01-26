@@ -6,25 +6,25 @@ import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;
 
-import com.example.ceep.classes.model.Nota;
+import com.example.ceep.classes.model.Note;
 
 import java.util.List;
 
 @Dao
-public interface NotaDataDao {
+public interface NoteDAO {
 
     @Insert()
-    Long insere(Nota nota);
+    Long insert(Note note);
 
     @Delete()
-    void remove(Nota nota);
+    void remove(Note note);
 
     @Update()
-     void edita(Nota nota);
+     void update(Note note);
 
 
-    @Query("SELECT * FROM Nota  ORDER BY posicao DESC")
-    List<Nota> todos();
+    @Query("SELECT * FROM Note  ORDER BY position DESC")
+    List<Note> allNote();
 
 
 }

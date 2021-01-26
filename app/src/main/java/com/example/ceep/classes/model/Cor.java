@@ -1,15 +1,15 @@
 package com.example.ceep.classes.model;
 
-import com.example.ceep.classes.constantes.general.coresEnum;
+import com.example.ceep.classes.constants.general.ColorsEnum;
 
 public class Cor {
-    final coresEnum cor;
+    final ColorsEnum cor;
 
-    public Cor(coresEnum cor) {
+    public Cor(ColorsEnum cor) {
         this.cor = cor;
     }
 
-    public coresEnum getCor() {
+    public ColorsEnum getCor() {
         return cor;
     }
 

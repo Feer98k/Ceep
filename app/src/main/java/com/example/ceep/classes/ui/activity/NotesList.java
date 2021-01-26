@@ -15,46 +15,47 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import com.example.ceep.R;
-import com.example.ceep.classes.ui.adapter.listaNotasAdapter.ListaNotasAdapter;
+import com.example.ceep.classes.database.dao.NoteDAO;
+import com.example.ceep.classes.ui.adapter.listaNotasAdapter.NotesAdapterList;
 import com.example.ceep.classes.ui.adapter.listaNotasAdapter.NotaItemTouchHelper;
-import com.example.ceep.classes.database.dao.NotaDataDao;
 import com.example.ceep.classes.database.Database;
-import com.example.ceep.classes.model.Nota;
+import com.example.ceep.classes.model.Note;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.List;
 
-import static com.example.ceep.classes.constantes.general.ConstantesGerais.NOTAS;
-import static com.example.ceep.classes.constantes.general.ConstantesGerais.NOTA_INTENT;
-import static com.example.ceep.classes.constantes.sharedPreference.layoutPreference.GRID;
-import static com.example.ceep.classes.constantes.sharedPreference.layoutPreference.LINEAR;
-import static com.example.ceep.classes.constantes.sharedPreference.layoutPreference.USER_PREFERENCES;
+import static com.example.ceep.classes.constants.general.GeneralConstants.NOTE;
+import static com.example.ceep.classes.constants.general.GeneralConstants.NEW_INTENT;
+import static com.example.ceep.classes.constants.sharedPreference.LayoutPreference.GRID;
+import static com.example.ceep.classes.constants.sharedPreference.LayoutPreference.LINEAR;
+import static com.example.ceep.classes.constants.sharedPreference.LayoutPreference.USER_PREFERENCES;
 
-public class ListaNotas extends AppCompatActivity {
+public class NotesList extends AppCompatActivity {
 
 
     private RecyclerView listaReyclerView;
-    private ListaNotasAdapter adapter;
-    private NotaDataDao notaDAO;
+    private NotesAdapterList adapterNoteList;
+    private NoteDAO noteDao;
     private LinearLayoutManager linearLayoutManager;
     private StaggeredGridLayoutManager staggeredGridLayoutManager;
     SharedPreferences preferences;
-    List<Nota> listaNotas;
+    List<Note> listaNotes;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         setContentView(R.layout.activity_lista_notas);
         super.onCreate(savedInstanceState);
-        configurarLista();
-        iniciaLayoutManager();
-        verificaPreferenciaLayout();
-        onItemNotaClick();
-        botaoFormulario();
+        setList();
+        startLayoutManagerSet();
+        checkPreferenceLayout();
+        onItemNoteClick();
+        btnForm();
     }
 
 
     @Override
     protected void onResume() {
-        atualizaLista();
+        refreshList();
         super.onResume();
     }
 
@@ -73,7 +74,7 @@ public class ListaNotas extends AppCompatActivity {
         MenuItem grid = menu.findItem(R.id.menu_grid);
         MenuItem help = menu.findItem(R.id.menu_feedback_help);
 
-        logicaVisibilidadesBotaoMenu(linear, grid);
+        visibilityLogicMenuItem(linear, grid);
 
         linearItemMenuClick(linear, grid);
         gridItemMenuClick(linear, grid);
@@ -82,7 +83,7 @@ public class ListaNotas extends AppCompatActivity {
         return true;
     }
 
-    private void logicaVisibilidadesBotaoMenu(MenuItem linear, MenuItem grid) {
+    private void visibilityLogicMenuItem(MenuItem linear, MenuItem grid) {
         if (preferences.getBoolean(LINEAR, true)) {
             linear.setVisible(false);
             grid.setVisible(true);
@@ -94,7 +95,7 @@ public class ListaNotas extends AppCompatActivity {
 
     private void linearItemMenuClick(MenuItem linear, MenuItem grid) {
         linear.setOnMenuItemClickListener(item -> {
-            criarLinear(preferences);
+            createLinear(preferences);
             setToLinear();
             linear.setVisible(false);
             grid.setVisible(true);
@@ -104,7 +105,7 @@ public class ListaNotas extends AppCompatActivity {
 
     private void gridItemMenuClick(MenuItem linear, MenuItem grid) {
         grid.setOnMenuItemClickListener(item -> {
-            criarGrid(preferences);
+            createGrid(preferences);
             setToGrid();
             linear.setVisible(true);
             grid.setVisible(false);
@@ -120,61 +121,61 @@ public class ListaNotas extends AppCompatActivity {
     }
 
 
-    private void iniciaLayoutManager() {
+    private void startLayoutManagerSet() {
         linearLayoutManager =
                 new LinearLayoutManager(this);
         staggeredGridLayoutManager =
                 new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
     }
 
-    private synchronized void configurarLista() {
-        notaDAO = Database.getInstance(this).getNotaDataDao();
-        listaNotas = notaDAO.todos();
+    private synchronized void setList() {
+        noteDao = Database.getInstance(this).getNotaDataDao();
+        listaNotes = noteDao.allNote();
         listaReyclerView = findViewById(R.id.lista_notas_recyclerview);
-        adapter = new ListaNotasAdapter(this, listaNotas, notaDAO);
-        listaReyclerView.setAdapter(adapter);
+        adapterNoteList = new NotesAdapterList(this, listaNotes, noteDao);
+        listaReyclerView.setAdapter(adapterNoteList);
 
-        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(new NotaItemTouchHelper(adapter, listaNotas, notaDAO));
+        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(new NotaItemTouchHelper(adapterNoteList, listaNotes, noteDao));
         itemTouchHelper.attachToRecyclerView(listaReyclerView);
-        setTitle(NOTAS);
+        setTitle(NOTE);
 
     }
 
 
-    private void botaoFormulario() {
-        TextView novaNota = findViewById(R.id.lista_notas_insere_nota);
-        novaNota.setOnClickListener(v -> intentFormularioNotas());
+    private void btnForm() {
+        FloatingActionButton novaNota = findViewById(R.id.lista_notas_insere_nota);
+        novaNota.setOnClickListener(v -> intentFormNote());
     }
 
-    private void intentFormularioNotas() {
-        Intent intent = new Intent(getApplicationContext(), FormularioDeNotas.class);
+    private void intentFormNote() {
+        Intent intent = new Intent(getApplicationContext(), NotesForm.class);
         startActivity(intent);
 
     }
 
     private void intentFormularioHelper() {
-        Intent intent = new Intent(getApplicationContext(), FormularioFeedback.class);
+        Intent intent = new Intent(getApplicationContext(), FeedbackForm.class);
         startActivity(intent);
 
     }
 
-    private void onItemNotaClick() {
-        adapter.setOnClickListerner(nota -> {
-            atualizaLista();
-            Intent intent = (new Intent(getApplicationContext(), FormularioDeNotas.class));
-            intent.putExtra(NOTA_INTENT, nota);
+    private void onItemNoteClick() {
+        adapterNoteList.setOnClickListerner(nota -> {
+            refreshList();
+            Intent intent = (new Intent(getApplicationContext(), NotesForm.class));
+            intent.putExtra(NEW_INTENT, nota);
             startActivity(intent);
         });
     }
 
-    private void criarLinear(SharedPreferences preferences) {
+    private void createLinear(SharedPreferences preferences) {
         SharedPreferences.Editor editor = preferences.edit();
         editor.putBoolean(LINEAR, true);
         editor.putBoolean(GRID, false);
         editor.apply();
     }
 
-    private void criarGrid(SharedPreferences preferences) {
+    private void createGrid(SharedPreferences preferences) {
         SharedPreferences.Editor editor = preferences.edit();
         editor.putBoolean(LINEAR, false);
         editor.putBoolean(GRID, true);
@@ -190,20 +191,20 @@ public class ListaNotas extends AppCompatActivity {
         listaReyclerView.setLayoutManager(staggeredGridLayoutManager);
     }
 
-    private void verificaPreferenciaLayout() {
+    private void checkPreferenceLayout() {
         preferences = getSharedPreferences(USER_PREFERENCES, MODE_PRIVATE);
-        boolean preferenciaLinear = preferences.getBoolean(LINEAR, true);
-        if (preferenciaLinear) {
+        boolean linearPreference = preferences.getBoolean(LINEAR, true);
+        if (linearPreference) {
             setToLinear();
         } else {
             setToGrid();
         }
     }
 
-    private void atualizaLista() {
-        listaNotas.clear();
-        listaNotas.addAll(notaDAO.todos());
-        adapter.notifyDataSetChanged();
+    private void refreshList() {
+        listaNotes.clear();
+        listaNotes.addAll(noteDao.allNote());
+        adapterNoteList.notifyDataSetChanged();
     }
 
 }

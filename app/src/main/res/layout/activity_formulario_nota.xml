@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".classes.ui.activity.FormularioDeNotas"
+    tools:context=".classes.ui.activity.NotesForm"
 
     >
 
@@ -25,7 +25,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
         android:background="@android:color/transparent"
-        android:hint="@string/titulo"
+        android:hint="@string/title"
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -41,7 +41,7 @@
         android:layout_marginBottom="8dp"
         android:layout_marginTop="8dp"
         android:background="@android:color/transparent"
-        android:hint="@string/descricao"
+        android:hint="@string/description"
         android:gravity="top"
         app:layout_constraintBottom_toTopOf="@id/formulario_nota_recyclerView"
         app:layout_constraintEnd_toEndOf="@id/formulario_nota_titulo"

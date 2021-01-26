@@ -13,9 +13,9 @@
         android:theme="@style/Theme.Ceep"
         android:fullBackupContent="@xml/backup_descriptor"
         tools:ignore="AllowBackup">
-        <activity android:name=".classes.ui.activity.FormularioFeedback"></activity>
+        <activity android:name=".classes.ui.activity.FeedbackForm"></activity>
         <activity
-            android:name=".classes.ui.activity.splashScreen"
+            android:name=".classes.ui.activity.SplashScreen"
             android:theme="@style/Theme.AppCompat.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,8 +23,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".classes.ui.activity.FormularioDeNotas" />
-        <activity android:name=".classes.ui.activity.ListaNotas" />
+        <activity android:name=".classes.ui.activity.NotesForm" />
+        <activity android:name=".classes.ui.activity.NotesList" />
     </application>
 
 </manifest>

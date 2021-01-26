@@ -6,19 +6,19 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.room.TypeConverters;
 
-import com.example.ceep.classes.database.conveter.coresEnumConverter;
-import com.example.ceep.classes.database.dao.NotaDataDao;
-import com.example.ceep.classes.model.Nota;
+import com.example.ceep.classes.database.conveter.ColorsEnumConverter;
+import com.example.ceep.classes.database.dao.NoteDAO;
+import com.example.ceep.classes.model.Note;
 
-import static com.example.ceep.classes.constantes.general.ConstantesGerais.CEEP_DB;
-import static com.example.ceep.classes.database.migrations.migrations.MIGRATION;
+import static com.example.ceep.classes.constants.general.GeneralConstants.CEEP_DB;
+import static com.example.ceep.classes.database.migrations.Migrations.MIGRATION;
 
-@androidx.room.Database(entities = {Nota.class},version = 2,exportSchema = false)
-@TypeConverters({coresEnumConverter.class})
+@androidx.room.Database(entities = {Note.class},version = 3,exportSchema = false)
+@TypeConverters({ColorsEnumConverter.class})
 public abstract class Database extends RoomDatabase {
 
 
-    public abstract NotaDataDao getNotaDataDao();
+    public abstract NoteDAO getNotaDataDao();
 
     public static  Database getInstance(Context context){
         return Room.databaseBuilder(context,Database.class, CEEP_DB)

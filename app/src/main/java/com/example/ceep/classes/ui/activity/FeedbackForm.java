@@ -10,16 +10,16 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.ceep.R;
 
-import static com.example.ceep.classes.constantes.general.ConstantesGerais.FEED_BACK;
+import static com.example.ceep.classes.constants.general.GeneralConstants.FEEDBACK;
 
-public class FormularioFeedback extends AppCompatActivity {
+public class FeedbackForm extends AppCompatActivity {
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_formulario_feedback);
-        setTitle(FEED_BACK);
+        setTitle(FEEDBACK);
     }
 
     @Override
