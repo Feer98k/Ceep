@@ -1,4 +1,4 @@
-package com.example.ceep.classes.ui.activity;
+  package com.example.ceep.classes.ui.activity;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -143,7 +143,7 @@ public class NotesList extends AppCompatActivity {
 
 
     private void btnForm() {
-        FloatingActionButton novaNota = findViewById(R.id.lista_notas_insere_nota);
+       TextView novaNota = findViewById(R.id.lista_notas_insere_nota);
         novaNota.setOnClickListener(v -> intentFormNote());
     }
 
