@@ -8,13 +8,13 @@ Boas práticas de organização e arquitetura seguindo conceitos de Clean code
 - Persistência de dados com Room SqLite
 - SharedPreferences
 
-O objetivo deste projeto é fornecer ao usuário um app de anotações simples e intuitivo,
+# O objetivo deste projeto é fornecer ao usuário um app de anotações simples e intuitivo,
 com operações CRUD personalizadas através da RecyclerView com a implementação de gestos para trocar posição das notas e remover além da adição e remoção de notas.
 
-Requisitos mínimos ao usuário :
+# Requisitos mínimos ao usuário :
  - OS Android 4.1 (API LEVEL 16) Jelly Beans
 	
-Requisitos mínimos ao desenvolvedor:
+# Requisitos mínimos ao desenvolvedor:
  - Compatibilidade com Java 8
 
 Nenhuma configuração extra é necessária.
