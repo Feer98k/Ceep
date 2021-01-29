@@ -12,10 +12,10 @@ O objetivo deste projeto é fornecer ao usuário um app de anotações simples e
 com operações CRUD personalizadas através da RecyclerView com a implementação de gestos para trocar posição das notas e remover além da adição e remoção de notas.
 
 Requisitos mínimos ao usuário :
- -OS Android 4.1 (API LEVEL 16) Jelly Beans
+ - OS Android 4.1 (API LEVEL 16) Jelly Beans
 	
 Requisitos mínimos ao desenvolvedor:
- -Compatibilidade com Java 8
+ - Compatibilidade com Java 8
 
 Nenhuma configuração extra é necessária.
 
